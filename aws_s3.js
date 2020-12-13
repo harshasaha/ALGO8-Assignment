@@ -3,9 +3,10 @@ var S3 = require("aws-sdk/clients/s3");
 const AWS = require("aws-sdk");
 
 const upload = (data) => {
+	console.log(process.env.S3_KEY)
 	const s3 = new AWS.S3({
 		accessKeyId: process.env.S3_KEY,
-		secretAccessKey: process.env.S3_SECRET,
+		secretAccessKey: process.env.S3_SECRET
 	});
 
 	const params = {
