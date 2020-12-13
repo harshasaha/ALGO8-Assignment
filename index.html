@@ -1,0 +1,171 @@
+<html>
+	<head></head>
+	<body>
+		<div
+			style="
+				width: 45%;
+				float: left;
+				border: 1px solid #ccc;
+				border-radius: 10px;
+				background: #ececec;
+				padding: 10px;
+			"
+		>
+			<h3>Add data</h3>
+			<form action="/add" method="POST">
+				<div>
+					<select
+						placeholder="Type"
+						name="type"
+						style="
+							width: 48%;
+							margin-bottom: 5%;
+							height: 35px;
+							border-radius: 7px;
+							padding: 10px;
+						"
+					>
+						<option>A</option>
+						<option>B</option>
+						<option>C</option>
+						<option>D</option>
+					</select>
+				</div>
+				<div>
+					<input
+						type="text"
+						placeholder="Field1"
+						name="field1"
+						style="
+							width: 48%;
+							margin-bottom: 5%;
+							height: 35px;
+							border-radius: 7px;
+							padding: 10px;
+							border: 1px solid #767676;
+						"
+					/>
+				</div>
+				<div>
+					<input
+						type="text"
+						placeholder="Field2"
+						name="field2"
+						style="
+							width: 48%;
+							margin-bottom: 5%;
+							height: 35px;
+							border-radius: 7px;
+							padding: 10px;
+							border: 1px solid #767676;
+						"
+					/>
+				</div>
+				<div>
+					<input
+						type="text"
+						placeholder="Field3"
+						name="field3"
+						style="
+							width: 48%;
+							margin-bottom: 5%;
+							height: 35px;
+							border-radius: 7px;
+							padding: 10px;
+							border: 1px solid #767676;
+						"
+					/>
+				</div>
+				<div>
+					<input
+						type="text"
+						placeholder="Field4"
+						name="field4"
+						style="
+							width: 48%;
+							margin-bottom: 5%;
+							height: 35px;
+							border-radius: 7px;
+							padding: 10px;
+							border: 1px solid #767676;
+						"
+					/>
+				</div>
+				<div>
+					<input
+						type="text"
+						placeholder="Field5"
+						name="Field5"
+						style="
+							width: 48%;
+							margin-bottom: 5%;
+							height: 35px;
+							border-radius: 7px;
+							padding: 10px;
+							border: 1px solid #767676;
+						"
+					/>
+				</div>
+				<div style="text-align: 'right';">
+					<button type="submit">Add</button>
+				</div>
+			</form>
+		</div>
+		<div style="width: 50%; float: right;">
+			<h3>Export data</h3>
+
+			<select
+				placeholder="type"
+				name="Type"
+				id="type"
+				style="
+					width: 48%;
+					margin-bottom: 5%;
+					height: 35px;
+					border-radius: 7px;
+					padding: 10px;
+				"
+			>
+				<option>Selete type</option>
+				<option>A</option>
+				<option>B</option>
+				<option>C</option>
+				<option>D</option>
+			</select>
+			<div>
+				<input
+					type="number"
+					placeholder="Size"
+					name="size"
+					id="size"
+					style="
+						width: 48%;
+						margin-bottom: 5%;
+						height: 35px;
+						border-radius: 7px;
+						padding: 10px;
+						border: 1px solid #767676;
+					"
+				/>
+			</div>
+			<button id="export">Export</button>
+
+			<div id="urldisplay"></div>
+			<script>
+				const exportButton = document.getElementById("export");
+
+				exportButton.addEventListener("click", function () {
+					let size = document.getElementById("size").value;
+					let type = document.getElementById("type").value;
+					fetch("/export/" + (size || "all") + "/" + type, {
+						method: "GET",
+					})
+						.then((response) => response.text())
+						.then((text) => {
+							document.getElementById("urldisplay").innerHTML = "S3 link: "+text
+						});
+				});
+			</script>
+		</div>
+	</body>
+</html>

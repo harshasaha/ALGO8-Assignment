@@ -1,0 +1,27 @@
+{
+  "name": "ALGO8",
+  "version": "1.0.0",
+  "description": "ALGO8 Backend Developer Assignment Task 3D",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harshasaha/ALGO8-Assignment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harshasaha/ALGO8-Assignment/issues"
+  },
+  "homepage": "https://github.com/harshasaha/ALGO8-Assignment#readme",
+  "dependencies": {
+    "aws-sdk": "^2.809.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "json2csv": "^5.0.5",
+    "mongodb": "^3.6.3"
+  }
+}
